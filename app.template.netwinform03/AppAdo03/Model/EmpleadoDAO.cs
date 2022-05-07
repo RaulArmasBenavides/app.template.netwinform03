@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace AppAdo03.Model
 {
-    public class EmpleadoDAO : ICrudDao<EmpleadoTO>
+    public class EmpleadoDAO : BusinessService<EmpleadoTO>
     {
         SqlCommand cmd;
         SqlDataReader dr;
@@ -27,7 +27,7 @@ namespace AppAdo03.Model
             return 0;
         }
 
-        public EmpleadoTO findForId(object t)
+        public EmpleadoTO findById(object t)
         {
             return null;
         }
@@ -49,10 +49,10 @@ namespace AppAdo03.Model
             {
                 using (var cn = AccesoDB.Conexion())
                 {
-                    cmd = new SqlCommand("usp_Empleado_Validar", cn);
+                    cmd = new SqlCommand("usp_validar_empleado", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Usuario", usuario);
-                    cmd.Parameters.AddWithValue("@Clave", clave);
+                    cmd.Parameters.AddWithValue("@Nombre", usuario);
+                    cmd.Parameters.AddWithValue("@Apellido", clave);
                     cn.Open();
                     dr = cmd.ExecuteReader();
                     if (dr.Read())

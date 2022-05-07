@@ -50,13 +50,17 @@
     <Compile Include="Controller\EmpleadoBLL.cs" />
     <Compile Include="Controller\ProductoBLL.cs" />
     <Compile Include="DataBase\AccesoDB.cs" />
+    <Compile Include="Entity\ClienteTO.cs" />
     <Compile Include="Entity\EmpleadoTO.cs" />
+    <Compile Include="Entity\PedidoTO.cs" />
     <Compile Include="Entity\ProductoTO.cs" />
+    <Compile Include="Model\ClienteDAO.cs" />
     <Compile Include="Model\EmpleadoDAO.cs" />
+    <Compile Include="Model\PedidoDAO.cs" />
     <Compile Include="Model\ProductoDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\ICrudDao.cs" />
+    <Compile Include="Service\BusinessService.cs" />
     <Compile Include="View\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

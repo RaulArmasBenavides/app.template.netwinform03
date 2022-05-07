@@ -36,7 +36,7 @@ namespace AppAdo03.Controller
 
         public ProductoTO ProductoBuscar(object p)
         {
-            return dao.findForId(p);
+            return dao.findById(p);
         }
 
         public List<ProductoTO> ProductoListar()

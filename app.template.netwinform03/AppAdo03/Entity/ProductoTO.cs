@@ -8,6 +8,17 @@ namespace AppAdo03.Entity
 {
     public class ProductoTO
     {
+
+        public ProductoTO()
+        {
+            IdProducto = 0;
+            IdProveedor = 0;
+            IdCategoria = 0;
+            Precio = 0;
+            Stock = 0;
+        }
+
+
         //propiedades
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }

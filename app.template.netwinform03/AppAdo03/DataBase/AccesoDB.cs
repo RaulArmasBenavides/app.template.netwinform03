@@ -12,8 +12,8 @@ namespace AppAdo03.DataBase
     {
         public static SqlConnection Conexion()
         {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["Neptuno"].ConnectionString);
-            return cn;
+            SqlConnection  myconexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Neptuno"].ConnectionString);
+            return myconexion;
         }          
         
     }

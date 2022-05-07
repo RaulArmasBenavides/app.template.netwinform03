@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AppAdo03.Service
 {
-    public interface ICrudDao<T>
+    public interface BusinessService<T>
     {
         //definir las firmas
         int create(T t);
         int update(T t);
         int delete(T t);
-        T findForId(object t);
+        T findById(object t);
         List<T> readAll();
     }
 }

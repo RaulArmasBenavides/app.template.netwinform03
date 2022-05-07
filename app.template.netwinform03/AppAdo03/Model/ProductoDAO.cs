@@ -11,14 +11,14 @@ using AppAdo03.DataBase;
 
 namespace AppAdo03.Model
 {
-    public class ProductoDAO : ICrudDao<ProductoTO>
+    public class ProductoDAO : BusinessService<ProductoTO>
     {
         // variables
         SqlCommand cmd;
         SqlDataReader dr;
         int ok;
 
-        public int create(ProductoTO t)
+        public int create(ProductoTO pro)
         {
             try
             {
@@ -26,17 +26,17 @@ namespace AppAdo03.Model
                 {
                     cmd = new SqlCommand("usp_Producto_Adicionar",cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    // prepar parametros con su valores para el sp
-                    cmd.Parameters.AddWithValue("@Nombre",t.NombreProducto);
-                    cmd.Parameters.AddWithValue("@IdProveedor", t.IdProveedor);
-                    cmd.Parameters.AddWithValue("@IdCategoria", t.IdCategoria);
-                    cmd.Parameters.AddWithValue("@Precio", t.Precio);
-                    cmd.Parameters.AddWithValue("@Stock", t.Stock);
+                    // setear los parámetros del sp , con los datos de prop
+                    cmd.Parameters.AddWithValue("@Nombre", pro.NombreProducto);
+                    cmd.Parameters.AddWithValue("@IdProveedor", pro.IdProveedor);
+                    cmd.Parameters.AddWithValue("@IdCategoria", pro.IdCategoria);
+                    cmd.Parameters.AddWithValue("@Precio", pro.Precio);
+                    cmd.Parameters.AddWithValue("@Stock", pro.Stock);
                     cmd.Parameters.Add("@IdProducto", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    //ejecutar sp
+                    //ejecutar el proceidimiento almacenado
                     cn.Open();
                     ok = cmd.ExecuteNonQuery() == 1 ? 1 : -1;
-                    t.IdProducto = (int)cmd.Parameters["@IdProducto"].Value;
+                    pro.IdProducto = (int)cmd.Parameters["@IdProducto"].Value;
                 }
             }
             catch (SqlException ex)
@@ -68,7 +68,7 @@ namespace AppAdo03.Model
             return ok;
         }
 
-        public ProductoTO findForId(object t)
+        public ProductoTO findById(object t)
         {
             ProductoTO pro = null;
             try
