@@ -1,4 +1,5 @@
-﻿using System;
+﻿using admSoftware;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,13 @@ namespace AppAdo03.View
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textSharpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Prim p = new Prim();
+            p.MdiParent = this;
+            p.Show();
         }
     }
 }
