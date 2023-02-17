@@ -1,12 +1,9 @@
-﻿using AppAdo03.Entity;
-using AppAdo03.Service;
+﻿using AppAdo03.Service;
+using ERPNETv1.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AppAdo03.Model
+namespace ERPNETv1.Model
 {
     public class ClienteDAO : BusinessService<ClienteTO>
     {

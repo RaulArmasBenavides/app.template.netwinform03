@@ -1,19 +1,15 @@
-﻿using AppAdo03.Entity;
-using AppAdo03.Service;
+﻿using AppAdo03.Service;
+using ERPNETv1.DataBase;
+using ERPNETv1.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using AppAdo03.DataBase;
 
-namespace AppAdo03.Model
+namespace ERPNETv1.Model
 {
     public class ProductoDAO : BusinessService<ProductoTO>
     {
-        // variables
         SqlCommand cmd;
         SqlDataReader dr;
         int ok;
@@ -22,9 +18,9 @@ namespace AppAdo03.Model
         {
             try
             {
-                using (var cn=AccesoDB.Conexion())
+                using (var cn = AccesoDB.Conexion())
                 {
-                    cmd = new SqlCommand("usp_Producto_Adicionar",cn);
+                    cmd = new SqlCommand("usp_Producto_Adicionar", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     // setear los parámetros del sp , con los datos de prop
                     cmd.Parameters.AddWithValue("@Nombre", pro.NombreProducto);
@@ -43,7 +39,7 @@ namespace AppAdo03.Model
             {
                 throw ex;
             }
-            return ok;         
+            return ok;
         }
 
         public int delete(ProductoTO t)
@@ -90,7 +86,7 @@ namespace AppAdo03.Model
                             IdCategoria = Convert.ToInt32(dr[3]),
                             Precio = Convert.ToDecimal(dr[4]),
                             Stock = Convert.ToInt32(dr[5]),
-                        };                       
+                        };
                     }
                     dr.Close();
                 }
@@ -118,11 +114,11 @@ namespace AppAdo03.Model
                         ProductoTO pro = new ProductoTO()
                         {
                             IdProducto = Convert.ToInt32(dr[0]),
-                            NombreProducto=dr[1].ToString(),
-                            IdProveedor= Convert.ToInt32(dr[2]),
-                            IdCategoria= Convert.ToInt32(dr[3]),
-                            Precio= Convert.ToDecimal(dr[4]),
-                            Stock= Convert.ToInt32(dr[5]),
+                            NombreProducto = dr[1].ToString(),
+                            IdProveedor = Convert.ToInt32(dr[2]),
+                            IdCategoria = Convert.ToInt32(dr[3]),
+                            Precio = Convert.ToDecimal(dr[4]),
+                            Stock = Convert.ToInt32(dr[5]),
                         };
                         lista.Add(pro);
                     }
@@ -150,7 +146,7 @@ namespace AppAdo03.Model
                     cmd.Parameters.AddWithValue("@IdCategoria", t.IdCategoria);
                     cmd.Parameters.AddWithValue("@Precio", t.Precio);
                     cmd.Parameters.AddWithValue("@Stock", t.Stock);
-                    cmd.Parameters.AddWithValue("@IdProducto",t.IdProducto);
+                    cmd.Parameters.AddWithValue("@IdProducto", t.IdProducto);
                     //ejecutar sp
                     cn.Open();
                     ok = cmd.ExecuteNonQuery() == 1 ? 1 : -1;
@@ -166,7 +162,7 @@ namespace AppAdo03.Model
         public DataTable readAllProveedores()
         {
             DataTable dt;
-            SqlDataAdapter dap;                 
+            SqlDataAdapter dap;
             try
             {
                 using (var cn = AccesoDB.Conexion())
@@ -174,7 +170,7 @@ namespace AppAdo03.Model
                     dap = new SqlDataAdapter("usp_Proveedor_Listar", cn);
                     dap.SelectCommand.CommandType = CommandType.StoredProcedure;
                     dt = new DataTable();
-                    dap.Fill(dt);                               
+                    dap.Fill(dt);
                 }
             }
             catch (SqlException ex)

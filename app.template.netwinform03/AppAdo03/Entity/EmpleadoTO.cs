@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppAdo03.Entity
+﻿namespace ERPNETv1.Entity
 {
     public class EmpleadoTO
     {
@@ -12,7 +6,7 @@ namespace AppAdo03.Entity
         public int IdEmpleado { get; set; }
         public string Apellidos { get; set; } //clave
         public string Nombre { get; set; } //usuario
-        public string  Cargo { get; set; }
+        public string Cargo { get; set; }
     }
 
 }

@@ -92,7 +92,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AppAdo03.Properties.Resources._1354826118_Keychain_Access;
+            this.pictureBox1.Image = global::ERPNETv1.Properties.Resources._1354826118_Keychain_Access;
             this.pictureBox1.Location = new System.Drawing.Point(13, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(127, 112);

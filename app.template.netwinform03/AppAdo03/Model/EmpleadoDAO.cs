@@ -1,22 +1,16 @@
-﻿using AppAdo03.DataBase;
-using AppAdo03.Entity;
-using AppAdo03.Service;
-using System;
+﻿using AppAdo03.Service;
+using ERPNETv1.DataBase;
+using ERPNETv1.Entity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace AppAdo03.Model
+namespace ERPNETv1.Model
 {
     public class EmpleadoDAO : BusinessService<EmpleadoTO>
     {
         SqlCommand cmd;
         SqlDataReader dr;
-
-
         public int create(EmpleadoTO t)
         {
             return 0;
@@ -42,7 +36,7 @@ namespace AppAdo03.Model
             return 0;
         }
 
-        public bool validar(string usuario,string clave)
+        public bool validar(string usuario, string clave)
         {
             bool ok = false;
             try

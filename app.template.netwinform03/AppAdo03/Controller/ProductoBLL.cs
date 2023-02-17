@@ -1,19 +1,13 @@
-﻿using AppAdo03.Entity;
-using AppAdo03.Model;
-using System;
+﻿using ERPNETv1.Entity;
+using ERPNETv1.Model;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AppAdo03.Controller
+namespace ERPNETv1.Controller
 {
     public class ProductoBLL
     {
-        // variable de la clase ProductoDAO
         ProductoDAO dao;
-        //constructor
         public ProductoBLL()
         {
             dao = new ProductoDAO();

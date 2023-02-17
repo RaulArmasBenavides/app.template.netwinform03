@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAdo03", "AppAdo03\AppAdo03.csproj", "{04D2ED02-1AD6-49E0-877C-69482C7092C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPNETv1", "AppAdo03\ERPNETv1.csproj", "{04D2ED02-1AD6-49E0-877C-69482C7092C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFF32770-EF72-48F8-A700-065E82958EA4}
 	EndGlobalSection
 EndGlobal

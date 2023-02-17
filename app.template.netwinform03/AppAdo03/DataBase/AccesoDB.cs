@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Configuration;
 
-namespace AppAdo03.DataBase
+namespace ERPNETv1.DataBase
 {
     public class AccesoDB
     {
         public static SqlConnection Conexion()
         {
-            SqlConnection  myconexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Neptuno"].ConnectionString);
+            SqlConnection myconexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Neptuno"].ConnectionString);
             return myconexion;
-        }          
-        
+        }
+
     }
 }

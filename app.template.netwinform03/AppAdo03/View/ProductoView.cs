@@ -1,13 +1,6 @@
-﻿using AppAdo03.Controller;
-using AppAdo03.Entity;
+﻿using ERPNETv1.Controller;
+using ERPNETv1.Entity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppAdo03.View
@@ -79,7 +72,7 @@ namespace AppAdo03.View
 
         private void procesar(int opcion)
         {
-            int ok=0;
+            int ok = 0;
             string msg = "";
             try
             {
@@ -114,7 +107,7 @@ namespace AppAdo03.View
         private void consultarProducto()
         {
             pro = opro.ProductoBuscar(txtCodigo.Text);
-            if (pro!=null)
+            if (pro != null)
             {
                 txtNombre.Text = pro.NombreProducto;
                 cboProveedor.SelectedValue = pro.IdProveedor;
@@ -135,12 +128,12 @@ namespace AppAdo03.View
             //crear objeto pro
             pro = new ProductoTO()
             {
-                IdProducto=int.Parse(txtCodigo.Text),
-                NombreProducto=txtNombre.Text,
-                IdProveedor=(int)cboProveedor.SelectedValue,
-                IdCategoria=(int)cboCategoria.SelectedValue,
-                Precio=decimal.Parse(txtPrecio.Text),
-                Stock=(int)numCantidad.Value
+                IdProducto = int.Parse(txtCodigo.Text),
+                NombreProducto = txtNombre.Text,
+                IdProveedor = (int)cboProveedor.SelectedValue,
+                IdCategoria = (int)cboCategoria.SelectedValue,
+                Precio = decimal.Parse(txtPrecio.Text),
+                Stock = (int)numCantidad.Value
             };
             return pro;
         }

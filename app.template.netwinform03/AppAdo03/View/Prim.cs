@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Win32;
-using iTextSharp.text;
+﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.IO;
+using Microsoft.Win32;
+using System;
+using System.Data;
 using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 
 namespace admSoftware
 {
@@ -41,27 +35,28 @@ namespace admSoftware
             datGridView1.Columns.Add("Direccion/Path");
             foreach (string subkey in subkeys)
             {
-                MiReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\"+subkey);
+                MiReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\" + subkey);
                 nombre = MiReg.GetValue("DisplayName");
-                if(nombre == null)
+                if (nombre == null)
                 {
                     snombre = subkey.ToString();
                 }
-                else { 
+                else
+                {
                     snombre = nombre.ToString();
                 }
                 path = MiReg.GetValue("InstallLocation");
-                if(path == null)
+                if (path == null)
                 {
                     path = MiReg.GetValue("InstallSource");
                     if (path == null)
                     {
                         path = MiReg.GetValue("Inno Setup: App Path");
-                        if(path == null)
+                        if (path == null)
                         {
                             path = MiReg.GetValue("InstallDir");
-                            
-                            if(path == null)
+
+                            if (path == null)
                             {
                                 path = MiReg.GetValue("DisplayIcon");
                                 if (path == null)
@@ -92,14 +87,15 @@ namespace admSoftware
                 {
                     spath = path.ToString();
                 }
- 
+
                 DataRow row = datGridView1.NewRow();
                 row["Nombre"] = snombre;
                 row["Direccion/Path"] = spath;
                 datGridView1.Rows.Add(row);
             }
 
-            foreach (DataRow Drow in datGridView1.Rows) {
+            foreach (DataRow Drow in datGridView1.Rows)
+            {
                 int num = dataGridView1.Rows.Add();
                 dataGridView1.Rows[num].Cells[0].Value = Drow["Nombre"].ToString();
                 dataGridView1.Rows[num].Cells[1].Value = Drow["Direccion/Path"].ToString();
@@ -141,9 +137,9 @@ namespace admSoftware
 
             PdfPCell cell11 = new PdfPCell();
             cell11.Colspan = 1;
-            cell11.AddElement(new Paragraph("Nombre PC: "+nombPC));
+            cell11.AddElement(new Paragraph("Nombre PC: " + nombPC));
 
-            cell11.AddElement(new Paragraph("S.O.: "+syst));
+            cell11.AddElement(new Paragraph("S.O.: " + syst));
             cell11.VerticalAlignment = Element.ALIGN_CENTER;
             cell11.HorizontalAlignment = Element.ALIGN_CENTER;
             PdfPCell cell12 = new PdfPCell();
@@ -242,7 +238,7 @@ namespace admSoftware
                 cell2.FixedHeight = 50.0f;
                 table2.AddCell(cell);
                 table2.AddCell(cell2);
-                
+
             }
 
             doc.Add(table1);
@@ -272,8 +268,8 @@ namespace admSoftware
             {
                 textBox5.Text = "El archivo ya ha sido generado.";
             }
-           
-            
+
+
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppAdo03.Entity
+﻿namespace ERPNETv1.Entity
 {
     public class ProductoTO
     {
